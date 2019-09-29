@@ -4,8 +4,7 @@ import argparse
 from dotenv import load_dotenv
 
 
-load_dotenv()
-TOKEN = os.getenv('TOKEN_BITLY')
+
 
 def createParser():
     parser = argparse.ArgumentParser()
@@ -39,6 +38,8 @@ def count_clicks(token, link):
     return response_dict['total_clicks']
 
 if __name__ == "__main__":
+    load_dotenv()
+    TOKEN = os.getenv('TOKEN_BITLY')
     parser = createParser()
     user_input = parser.parse_args().link
 
